@@ -84,7 +84,7 @@ class report {
 					ts.status,
 					c.name,
 					sc.name
-					 from tickets t inner join categories c on c.id = t.categoryid inner join ticketstatus ts on ts.ticketid = t.id inner join subcategories sc on t.subcategoryid = sc.id  $where order by t.opendate desc";
+					 from tickets t left join categories c on c.id = t.categoryid left join ticketstatus ts on ts.ticketid = t.id left join subcategories sc on t.subcategoryid = sc.id  $where order by t.opendate desc";
 					 // echo $sql;
       $result = $this->mysqli->query($sql);
 

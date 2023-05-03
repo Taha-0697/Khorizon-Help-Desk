@@ -3,7 +3,8 @@ include_once 'include/functions.php';
 include_once 'include/connect.php';
 include_once 'include/user.php';
 include_once 'include/saveuser.php';
-include_once 'include/functions.php';
+include_once 'include/userType.php';
+
 sec_session_start();
 
 if(login_check(dbConnect()) == true) {
@@ -39,9 +40,7 @@ if(login_check(dbConnect()) == true) {
 							<input type="password" name="password" id="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1"/><br>
 							<input type="password" name="confirmpwd" id="confirmpwd" class="form-control" placeholder="Confirm Password" aria-describedby="basic-addon1" /><br>
 							<select class="form-control" name="UserType" id="UserType">
-								<option value="none">Select User Type</option>
-								<option value="1">Administrator</option>
-								<option value="2">User</option>
+	                       		<?php userType::displayUserOptionList(); ?> 
 							</select>
 						 <br/>
 	                        <select class="form-control" name="groupId">  

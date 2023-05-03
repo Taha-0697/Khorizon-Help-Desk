@@ -76,15 +76,17 @@ body {
                 </li>
                 <?php } ?>
             </ul>
-           
+<!--            
             <form class="navbar-form navbar-right" role="search">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
-            </form>
+            </form> -->
 
- <p class="navbar-text">User: <?php echo '' .
+ <p class="navbar-text pull-right">
+
+<?php echo '' .
                 $_SESSION[
                     'username'
                 ]; ?> &nbsp;<a href="./include/logout.php"> log out?</a></p>

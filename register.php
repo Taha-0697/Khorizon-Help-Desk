@@ -1,6 +1,8 @@
 <?php
 include_once 'include/register.inc.php';
 include_once 'include/functions.php';
+include_once 'include/department.php';
+include_once 'include/userType.php';
 
 ?>
 
@@ -39,9 +41,7 @@ include_once 'include/functions.php';
 							<input type="password" name="password" id="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1"/><br>
 							<input type="password" name="confirmpwd" id="confirmpwd" class="form-control" placeholder="Confirm Password" aria-describedby="basic-addon1" /><br>
 							<select class="form-control" name="UserType" id="UserType">
-								<option value="none">Select User Type</option>
-								<option value="1">Administrator</option>
-								<option value="2">User</option>
+							   <?php userType::displayUserOptionList(); ?> 
 							</select>
 						 <br/>
 	                        <select class="form-control" name="groupId" id='groupId'>  
@@ -49,9 +49,16 @@ include_once 'include/functions.php';
 	                        </select>
 				               
 							<br/>
- 
-							<input type="button" name="registerBtn" id="registerBtn" class="btn btn-primary" value="Save" onclick="return regformhash(this.form);" /> 
+ <div class="w-full d-flex align-items-center justify-content-center">
+							<input type="button" name="registerBtn" id="registerBtn" class="btn btn-primary" style="margin-right:1rem ; text-transform:capitalize" value="Sign Up" onclick="return regformhash(this.form);" /> 
+                                Already have an account?
+                            <a href="index.php" class="txt1">
+                                SignIn
+                            </a>
+                        </div>
+
 						</form> 
+
 					 </div>
 					 <div class="col-md-6"> 
 						<ul>

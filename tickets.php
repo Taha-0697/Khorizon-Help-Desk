@@ -146,7 +146,7 @@ if (isset($_POST['updateTicket'])) {
 			                <div class="form-group">
 			                    <label for="ClientId" class="col-sm-2 control-label">Client# </label>
 			                    <div class="col-sm-10">
-			                    	<input class="form-control" name="ClientId" type="text"  value="<?php echo ''. $ticket->getClientId(); ?>" />
+			                    	<input class="form-control" disabled name="ClientId" type="text"  value="<?php echo ''. $ticket->getClientId(); ?>" />
 			                    </div>
 			                </div>
 
@@ -238,7 +238,7 @@ if (isset($_POST['updateTicket'])) {
 			                </div>	  
 
  <?php } ?>
- <?php if($_SESSION['usertype']=='Administrator'){ ?>
+ <?php if($_SESSION['usertype']=='1'){ ?>
 			                			<div class="form-group">
 												<label for="assignedUser" class="col-sm-2 control-label">Assigned User:</label>
 												<div class="col-sm-10">
@@ -259,34 +259,27 @@ if (isset($_POST['updateTicket'])) {
 												</div>
 											</div>
  <?php } ?>
-											<div class="form-group">
-												<label for="comments" class="col-sm-2 control-label">Upload</label>
-													<div class="col-sm-10">
-														<div class="input-group">
-															<input type="text" class="form-control" readonly>
-								                <label class="input-group-btn">
-								                    <span class="btn btn-default">
-								                        Browse...<input id="fileToUpload" name="fileToUpload" type="file" style="display: none;" multiple>
-								                    </span>
-								                </label>
-								            </div>
-													</div>
-			                </div>
-											<div class="form-group">
-												 <label for="comments" class="col-sm-2 control-label">Attachments </label>
-												 <div class="col-sm-10"><?php $ticket->linkAttachments(); ?></div>
-											</div>
+											
 
-											<div class="form-group row">
-									      <div class="offset-sm-2 col-sm-10">
-									        <button name="updateTicket" class="btn btn-primary" type="submit">Update</button>
-									      </div>
+											<div class="form-group row ">
+									  <div style='margin-top:3rem' class="offset-sm-2 col-sm-12">
+<button name="updateTicket" class="btn btn-primary" type="submit">
+	Update
+</button>
+
+<button name="closeTicket" class="btn btn-danger" onclick="window.location='/ticketdesk-master/main.php';return false;">
+	Cancel
+</button>
+
+</div>
 									    </div>
 
-
+	
 
 	        		</form>
 	        		</div>
+
+
 	        	</div>
 	        	<?php $ticket->getNotes();?>
 		<?php }	?>

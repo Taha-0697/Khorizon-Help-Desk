@@ -548,7 +548,7 @@ class ticket {
    	 */
    	public static function displayRecentTickets() {
    		$mysqli = dbConnect();
- if($_SESSION['usertype']=='Administrator'){
+ if($_SESSION['usertype']=='1'){
 	$sql = "select
    			t.id as ticketid,
 			t.clientid,
@@ -587,8 +587,8 @@ class ticket {
    	
 
 		$result = $mysqli->query($sql);
-		echo '<table class="table"><th>Client#</th><th>Subject</th><th>Category</th><th>Sub Category</th><th>Assigned</th><th>Status</th>';
 		if ($result->num_rows > 0) {
+		echo '<table class="table"><th>Client#</th><th>Subject</th><th>Category</th><th>Sub Category</th><th>Assigned</th><th>Status</th>';
 			// output data of each row
 			while($row = $result->fetch_assoc()) {
 				#$comments = $row['comments'];
@@ -610,7 +610,7 @@ class ticket {
 				       		</tr>';
 			}
 		} else {
-			echo "Enter ClientId to see recent tickets.";
+			echo '<p style="padding:1rem">There are no Tickets to display</p>';
 		}
 		echo '</table>';
 		$mysqli->close();

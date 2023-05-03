@@ -136,26 +136,28 @@ class user
                 echo '<input type="password" name="password" id="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1"/><br></td>';
                 echo '<input type="password" name="confirmpwd" id="confirmpwd" class="form-control" placeholder="Confirm Password" aria-describedby="basic-addon1" /><br>';
 
-                if ($row['UserType'] == '1') {
-                    # code...
-                    echo '<select class="form-control" name="UserType" id="UserType">
-								<option value="none">Select User Type</option>
-								<option selected value="1">Administrator</option>
-								<option value="2">User</option>
-							</select>';
-                } elseif ($row['UserType'] == '2') {
-                    echo '<select class="form-control" name="UserType" id="UserType">
-								<option value="none">Select User Type</option>
-								<option  value="1">Administrator</option>
-								<option selected value="2">User</option>
-							</select>';
-                } else {
-                    echo '<select class="form-control" name="UserType" id="UserType">
-										<option value="none">Select User Type</option>
-										<option  value="1">Administrator</option>
-										<option value="2">User</option>
-									</select>';
+                #userroles
+                echo '<select class="form-control" name="UserType"> ';
+   $res = $mysqli->query('SELECT * FROM `usertypes`');
+                while ($result = $res->fetch_array()) {
+                    if ($result['id'] == $row['UserType']) {
+                        # code...
+                        echo '<option selected value="' .
+                            $result['id'] .
+                            '">' .
+                            $result['name'] .
+                            '</option>';
+                    } else {
+                        echo '<option value="' .
+                            $result['id'] .
+                            '">' .
+                            $result['name'] .
+                            '</option>';
+                    }
                 }
+
+  echo '</select>';
+                #departments               
                 echo '<br/><select class="form-control" name="groupId"> ';
 
                 $res = $mysqli->query('SELECT * FROM `groups`');

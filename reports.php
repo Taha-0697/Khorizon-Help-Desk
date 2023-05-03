@@ -108,7 +108,7 @@ if(login_check(dbConnect()) == true) {
 
 		  <div class="form-group row">
 		    <div class="col-sm-offset-2 col-sm-5">
-		      <button name="createReport" type="submit" class="btn btn-success">Create</button>
+		      <button name="createReport" type="submit" class="btn btn-primary">Generate</button>
 		    </div>
 		  </div>
 		</form>
